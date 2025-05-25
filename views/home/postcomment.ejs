@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comentários - <%= post.title %></title>
+  <link rel="stylesheet" href="/css/postcomments.css" />
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo">CEDUP 151 NEWS</div>
+    <ul>
+      <li><a href="/home">Início</a></li>
+      <li><a href="/home/postnotice">Postar</a></li>
+      <li>
+        <a href="/home/settings">
+          <img class="user-profile-img" src="/uploads/<%= userImage %>" alt="Usuário" width="40" />
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="post-detail">
+    <h2><%= post.title %></h2>
+    <img src="/uploads/<%= post.image %>" alt="Imagem do post" />
+    <p><%= post.content %></p>
+  </div>
+
+  <section class="comments-section">
+    <h3>Comentários</h3>
+
+    <form action="/home/postcomment" method="POST" class="comment-form">
+      <input type="hidden" name="postId" value="<%= post._id %>" />
+      <input type="text" name="comment" placeholder="Escreva seu comentário..." required />
+      <button type="submit">Comentar</button>
+    </form>
+
+    <div class="comments-list">
+      <% comments.forEach(comment => { %>
+        <div class="comment-item">
+          <img
+            src="/uploads/<%= comment.user && comment.user.image ? comment.user.image : 'user-icon.png' %>"
+            alt="Foto do usuário"
+            width="40"
+            class="comment-user-img"
+          />
+          <div class="comment-content">
+            <strong><%= comment.user && comment.user.name ? comment.user.name : 'Usuário Anônimo' %></strong>
+            <p><%= comment.comment %></p>
+            <small><%= new Date(comment.createdAt).toLocaleString('pt-BR') %></small>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+</main>
+</body>
+</html>

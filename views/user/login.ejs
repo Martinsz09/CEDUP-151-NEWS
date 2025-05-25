@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>CEDUP 151 NEWS - login</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="background-animation"></div>
+    <div class="container">
+        <div class="logo">Cedup 151 News</div>
+        <form action="/login" method="POST">
+            <input type="email" name="email" placeholder="Seu email" required>
+            <input type="password" name="password" placeholder="Sua senha" required>
+            <button type="submit">Cadastrar</button>
+            <p>Não possui uma conta? <a href="/">Cadastrar-se</a></p>
+        </form>
+        <% if (typeof errorMessage !== 'undefined') { %>
+            <div class="erro"><%= errorMessage %></div>
+        <% } %>
+    </div>
+    
+</body>
+</html>

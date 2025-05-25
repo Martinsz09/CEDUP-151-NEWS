@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CEDUP 151 NEWS - Home</title>
+  <link rel="stylesheet" href="/css/home.css" />
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo">CEDUP 151 NEWS</div>
+    <ul>
+      <li><a href="/home">Início</a></li>
+      <li><a href="/home/postnotice">Postar</a></li>
+      <li>
+        <a href="/home/settings">
+          <img class="user-profile-img" src="/uploads/<%= userImage %>" alt="Usuário" width="40" />
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <% posts.forEach(post => { %>
+    <div class="container">
+      <div class="img-post">
+        <img src="/uploads/<%= post.image %>" alt="Imagem do post" />
+      </div>
+      <div class="title-post">
+        <p><%= post.title %></p>
+      </div>
+      <div class="buttons-wrapper">
+        <div class="button">
+          <a href="/home/postcomment/<%= post._id %>">Comentar</a>
+        </div>
+      </div>
+    </div>
+  <% }) %>
+</main>
+</body>
+</html>

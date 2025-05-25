@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CEDUP 151 NEWS - Post notice</title>
+    <link rel="stylesheet" href="/css/postnotice.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">CEDUP 151 NEWS</div>
+            <ul>
+                <li><a href="/home">Início</a></li>
+                <li><a href="/home/postnotice">Postar</a></li>
+                <li><a href="/home/settings"><img class="user-profile-img" src="/uploads/<%= userImage %>" alt="Usuário" width="40" /></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form action="/home/postnotice" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="imagem">Imagem:</label>
+                <input type="file" id="imagem" name="image" accept="image/*" onchange="previewImage(event)" />
+            </div>
+
+            <div>
+                <label for="titulo">Título do Post:</label>
+                <input type="text" id="titulo" name="title" required />
+            </div>
+
+            <div>
+                <label for="conteudo">Conteúdo:</label>
+                <textarea id="conteudo" name="content" rows="10" required></textarea>
+            </div>
+
+            <div>
+                <button type="submit">Publicar post</button>
+            </div>
+
+            <!-- Pré-visualização da imagem -->
+            <div class="preview-container" style="display: none;">
+                <img id="preview" class="preview-img" />
+            </div>
+        </form>
+    </main>
+
+   
+</body>
+</html>
