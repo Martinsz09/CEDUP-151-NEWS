@@ -18,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/Martinsz09/CEDUP-151-NEWS/issues"
   },
-  "homepage": "https://github.com/Martinsz09/CEDUP-151-NEWS#readme"
+  "homepage": "https://github.com/Martinsz09/CEDUP-151-NEWS#readme",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.15.0"
+  }
 }
